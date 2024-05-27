@@ -1,29 +1,17 @@
-import './App.css';
+import {Route, Switch} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-    </div>
-  );
-}
+import Home from './components/Home'
+import NotFound from './components/NotFound'
+import TeamMatches from './components/TeamMatches'
 
-export default App;
+import './App.css'
+
+const App = () => (
+  <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/team-matches/:id" component={TeamMatches} />
+    <Route component={NotFound} />
+  </Switch>
+)
+
+export default App
